@@ -1,0 +1,4 @@
+interface:
+  display_name: "最小交付"
+  short_description: "将模糊需求收敛为可验证范围与交付计划的透明工程工作流"
+  default_prompt: "Use $mvp-delivery to define a time-boxed MVP delivery plan."
