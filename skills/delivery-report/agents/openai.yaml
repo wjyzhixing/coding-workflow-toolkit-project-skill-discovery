@@ -1,0 +1,4 @@
+interface:
+  display_name: "交付记录与报告"
+  short_description: "记录关键事实，并生成中文交付报告。"
+  default_prompt: "使用 $delivery-report 记录本次工作，并在结束时生成报告；不要提交或推送。"
