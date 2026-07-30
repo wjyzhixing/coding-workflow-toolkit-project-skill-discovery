@@ -1,0 +1,4 @@
+interface:
+  display_name: "引导式交付"
+  short_description: "通过一问一答收敛需求并在确认后完成完整交付与审查闭环"
+  default_prompt: "Use $guided-delivery to clarify a task one question at a time before implementation."

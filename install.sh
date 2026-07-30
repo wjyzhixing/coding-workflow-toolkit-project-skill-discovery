@@ -8,7 +8,7 @@ timestamp=$(date +%Y%m%d%H%M%S)
 
 mkdir -p "$target_dir"
 
-for skill_name in mvp-delivery feature-slice engineering-review debug-loop; do
+for skill_name in guided-delivery mvp-delivery feature-slice engineering-review debug-loop; do
   source_skill="$source_dir/$skill_name"
   target_skill="$target_dir/$skill_name"
 
@@ -32,4 +32,4 @@ for skill_name in mvp-delivery feature-slice engineering-review debug-loop; do
   echo "已安装：$target_skill"
 done
 
-echo '完成。请在新开的 Codex 会话中使用 $mvp-delivery、$feature-slice、$engineering-review 或 $debug-loop。'
+echo '完成。请在新开的 Codex 会话中使用 $guided-delivery、$mvp-delivery、$feature-slice、$engineering-review 或 $debug-loop。'

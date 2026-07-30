@@ -2,7 +2,7 @@
 
 本仓库提供 AI 辅助交付的通用工作流和 skills。
 
-开始任何编码、产品拆解或代码审查任务前，先阅读 [coding-workflow.md](coding-workflow.md)。遵循以下顺序：
+开始任何从初始题目进入的编码或产品拆解任务前，先阅读 [coding-workflow.md](coding-workflow.md)，并优先阅读和使用 `skills/guided-delivery/SKILL.md`。它负责一问一答地收敛共识，并在用户明确“确认实施”后才进入实现。遵循以下顺序：
 
 1. 澄清需求，或写出显式假设。
 2. 定义最小范围、验收标准、非目标与时间盒计划。
@@ -13,6 +13,7 @@
 
 ## Skill 路由
 
+- 从初始问题开始，需要澄清、共识、实施和审查的完整闭环：阅读并使用 `skills/guided-delivery/SKILL.md`。
 - 需求仍模糊、需要确定 MVP 或取舍：阅读并使用 `skills/mvp-delivery/SKILL.md`。
 - 在已有代码库交付一条端到端功能：阅读并使用 `skills/feature-slice/SKILL.md`。
 - 完成功能后或提交前审查风险：阅读并使用 `skills/engineering-review/SKILL.md`。
