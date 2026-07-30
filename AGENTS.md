@@ -2,7 +2,7 @@
 
 本仓库提供 AI 辅助交付的通用工作流和 skills。
 
-开始任何从初始题目进入的编码或产品拆解任务前，先阅读 [coding-workflow.md](coding-workflow.md)，并优先阅读和使用 `skills/guided-delivery/SKILL.md`。它负责一问一答地收敛共识，并在用户明确“确认实施”后才进入实现。遵循以下顺序：
+开始任何从初始题目进入的编码或产品拆解任务前，先阅读 [coding-workflow.md](coding-workflow.md)，并优先阅读和使用 `skills/guided-delivery/SKILL.md`。它负责一问一答地收敛共识，并自动同时使用 `skills/delivery-report/SKILL.md` 记录交付；在用户明确“确认实施”后才进入实现。遵循以下顺序：
 
 1. 澄清需求，或写出显式假设。
 2. 定义最小范围、验收标准、非目标与时间盒计划。
@@ -11,16 +11,16 @@
 5. 验证主链路、异常路径和相关系统边界。
 6. 总结取舍、验证结果、剩余风险和下一步。
 
-需要全程记录关键事项或在结束时生成需求、功能、问题或笔试题报告时，同时阅读并使用 `skills/delivery-report/SKILL.md`。默认只在对话中输出报告；用户明确要求后才写入既有文档位置。
+`guided-delivery` 的完整流程默认维护交付记录，并在结束时按任务类型输出报告。报告默认只在对话中输出；用户明确要求后才写入既有文档位置。
 
 ## Skill 路由
 
-- 从初始问题开始，需要澄清、共识、实施和审查的完整闭环：阅读并使用 `skills/guided-delivery/SKILL.md`。
+- 从初始问题开始，需要澄清、共识、实施和审查的完整闭环：阅读并使用 `skills/guided-delivery/SKILL.md`，它自动联动 `skills/delivery-report/SKILL.md`。
 - 需求仍模糊、需要确定 MVP 或取舍：阅读并使用 `skills/mvp-delivery/SKILL.md`。
 - 在已有代码库交付一条端到端功能：阅读并使用 `skills/feature-slice/SKILL.md`。
 - 完成功能后或提交前审查风险：阅读并使用 `skills/engineering-review/SKILL.md`。
 - 运行异常、测试失败或回归问题：阅读并使用 `skills/debug-loop/SKILL.md`。
-- 需要记录过程或生成最终报告：阅读并使用 `skills/delivery-report/SKILL.md`，作为上述流程的伴随 skill。
+- 不经过 `guided-delivery` 但需要记录过程或生成最终报告：阅读并使用 `skills/delivery-report/SKILL.md`。
 
 ## 透明性与安全边界
 
