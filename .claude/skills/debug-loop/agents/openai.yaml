@@ -1,0 +1,4 @@
+interface:
+  display_name: "调试闭环"
+  short_description: "以可复现证据驱动问题定位最小修复和完整回归验证流程"
+  default_prompt: "Use $debug-loop to reproduce, isolate, and verify this issue."

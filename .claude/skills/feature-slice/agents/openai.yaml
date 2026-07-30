@@ -1,0 +1,4 @@
+interface:
+  display_name: "功能切片"
+  short_description: "规划并交付一条范围明确且可独立验证的最小端到端功能链路"
+  default_prompt: "Use $feature-slice to deliver one focused vertical feature slice."

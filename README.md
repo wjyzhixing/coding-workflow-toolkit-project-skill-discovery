@@ -23,7 +23,9 @@
 │       └── delivery-workflow.svg
 ├── examples/
 │   └── scheduler-guided-delivery-demo.md
-├── install.sh                         # 安装 skills 的脚本
+├── install-codex.sh                   # 安装 skills 到 Codex (~/.codex/skills)
+├── install-claude.sh                  # 安装 skills 到 Claude Code (~/.claude/skills)
+├── install-common.sh                  # 安装脚本共享逻辑（被上面两个 source）
 ├── react/                             # React + Vite 示例
 │   ├── src/
 │   │   ├── test/setup.ts
@@ -104,16 +106,18 @@ npm start       # 启动编译产物
 
 ### 在任意仓库中调用 `$skill`
 
-将 skills 安装到 Codex 的全局发现目录：
+将 skills 安装到 Codex 或 Claude Code 的全局发现目录：
 
 ```bash
-./install.sh
+./install-codex.sh      # 安装到 ~/.codex/skills
+./install-claude.sh     # 安装到 ~/.claude/skills
 ```
 
-默认目标是 `~/.codex/skills`。也可以指定自己的 skills 目录：
+也可以指定自己的 skills 目录：
 
 ```bash
-./install.sh /path/to/skills
+./install-codex.sh /path/to/skills
+./install-claude.sh /path/to/skills
 ```
 
 安装脚本不会联网或安装依赖。若目标已有同名 skill，会先创建带时间戳的备份，再复制新版本。

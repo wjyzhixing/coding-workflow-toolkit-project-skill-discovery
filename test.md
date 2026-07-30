@@ -1,6 +1,6 @@
 这个题目建议按“先收敛、再切片、后审查”调用。
 
-如果已运行 ./install.sh 并新开了 Codex 会话，第一步输入：
+如果已运行 ./install-codex.sh 并新开了 Codex 会话，第一步输入：
 
 $mvp-delivery
 
