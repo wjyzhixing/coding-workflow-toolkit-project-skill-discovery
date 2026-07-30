@@ -6,6 +6,96 @@
 
 `$delivery-report` 作为伴随 skill 记录关键决策、实际改动、验证证据与风险，并在结束时按任务类型生成中文报告。整个工作流不会执行 commit、push、PR 或远端写操作。
 
+## 项目结构
+
+以下结构基于当前工作区生成，省略 `.git/`、`node_modules/` 与 `dist/`：
+
+```text
+.
+├── .agents/
+│   └── skills/                       # Codex 可发现的 skill 镜像及元数据
+├── .gitignore
+├── AGENTS.md                         # 项目级工作流与协作约定
+├── README.md
+├── coding-workflow.md                # 可复用的 AI 辅助交付流程
+├── docs/
+│   └── assets/
+│       └── delivery-workflow.svg
+├── examples/
+│   └── scheduler-guided-delivery-demo.md
+├── install.sh                         # 安装 skills 的脚本
+├── react/                             # React + Vite 示例
+│   ├── src/
+│   │   ├── test/setup.ts
+│   │   ├── App.test.tsx
+│   │   ├── App.tsx
+│   │   ├── App.css
+│   │   ├── index.css
+│   │   └── main.tsx
+│   ├── index.html
+│   ├── package.json
+│   ├── pnpm-lock.yaml
+│   ├── tsconfig.app.json
+│   ├── tsconfig.json
+│   ├── tsconfig.node.json
+│   └── vite.config.ts
+├── server/                            # 独立 Fastify + TypeScript API 模板
+│   ├── src/
+│   │   ├── app.ts                     # 路由与统一错误处理
+│   │   └── index.ts                   # 服务启动入口
+│   ├── test/
+│   │   └── app.test.ts                # API 契约测试
+│   ├── package.json
+│   ├── package-lock.json
+│   └── tsconfig.json
+├── skills/                            # 工作流 skill 源码
+│   ├── debug-loop/
+│   ├── delivery-report/
+│   ├── engineering-review/
+│   ├── feature-slice/
+│   ├── guided-delivery/
+│   └── mvp-delivery/
+├── test.md
+└── vue/                               # Vue + Vite 示例
+    ├── src/
+    │   ├── App.spec.ts
+    │   ├── App.vue
+    │   ├── App.css
+    │   ├── index.css
+    │   └── main.ts
+    ├── index.html
+    ├── package.json
+    ├── pnpm-lock.yaml
+    ├── tsconfig.app.json
+    ├── tsconfig.json
+    ├── tsconfig.node.json
+    └── vite.config.ts
+```
+
+## 极简 Node API 模板
+
+[`server/`](server/) 是一个可独立运行的 Fastify + TypeScript API 起点，提供统一 JSON 响应格式：
+
+- `GET /health`：服务健康状态；
+- `GET /api/v1/hello`：示例业务接口；
+- 其他路径：统一 JSON 404 响应。
+
+启动开发服务：
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+常用命令：
+
+```bash
+npm test        # 运行 API 契约测试
+npm run build   # 编译到 dist/
+npm start       # 启动编译产物
+```
+
 ## 两种使用方式
 
 ### 在本仓库中使用
