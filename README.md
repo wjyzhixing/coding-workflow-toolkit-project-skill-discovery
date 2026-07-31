@@ -102,6 +102,53 @@ npm run build   # 编译到 dist/
 npm start       # 启动编译产物
 ```
 
+## 通过 npx skills 安装
+
+仓库已发布到 GitHub，可以使用 [`skills`](https://skills.sh/) CLI 安装到支持 skills 的 AI 编程工具中。
+
+安装全部工作流 skills：
+
+```bash
+npx skills add wjyzhixing/coding-workflow-toolkit-project-skill-discovery
+```
+
+只安装指定 skill：
+
+```bash
+npx skills add wjyzhixing/coding-workflow-toolkit-project-skill-discovery \
+  --skill guided-delivery
+```
+
+指定安装目标：
+
+```bash
+# 安装到 Codex
+npx skills add wjyzhixing/coding-workflow-toolkit-project-skill-discovery -a codex
+
+# 安装到 Claude Code
+npx skills add wjyzhixing/coding-workflow-toolkit-project-skill-discovery -a claude-code
+```
+
+安装完成后，重新打开或重启对应的 AI 编程工具，然后在任务中显式调用 skill，例如：
+
+```text
+$guided-delivery
+
+我需要在 30 分钟内交付一个 React + Node.js 的最小功能。
+```
+
+更新已安装的 skills：
+
+```bash
+npx skills update
+```
+
+查看已安装的 skills：
+
+```bash
+npx skills list
+```
+
 ## 两种使用方式
 
 ### 在本仓库中使用
