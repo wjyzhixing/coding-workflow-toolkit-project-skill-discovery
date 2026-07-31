@@ -1,17 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1420 320" width="1420" height="320" role="img" aria-labelledby="title description">
   <title id="title">AI 辅助交付工作流</title>
-  <desc id="description">从题目或需求开始，经过澄清、确认、最小实现、验证与审查，最终生成交付报告；交付记录贯穿全程。</desc>
+  <desc id="description">从题目或需求开始，经过澄清、确认、最小实现、验证与审查，最终生成交付报告；信号成立且用户确认时可选沉淀为 OpenSpec 长期规格；交付记录贯穿全程。</desc>
   <style>text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif; } .title { fill:#111827; font-size:20px; font-weight:600; } .label { fill:#111827; font-size:15px; font-weight:600; } .sub { fill:#6b7280; font-size:12px; }</style>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/></marker>
     <marker id="record-arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/></marker>
+    <marker id="optional-arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/></marker>
   </defs>
-  <rect width="1200" height="320" fill="#ffffff"/>
+  <rect width="1420" height="320" fill="#ffffff"/>
   <text class="title" x="48" y="42">AI 辅助交付工作流</text>
-  <text class="sub" x="48" y="66">蓝色：主交付路径　绿色虚线：交付记录贯穿全程</text>
+  <text class="sub" x="48" y="66">蓝色：主交付路径　绿色虚线：交付记录贯穿全程　紫色虚线：可选沉淀分支（信号成立且用户确认）</text>
   <g fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)">
     <path d="M188 150H222"/><path d="M368 150H402"/><path d="M548 150H582"/><path d="M728 150H762"/><path d="M908 150H942"/>
   </g>
+  <path d="M1140 150H1174" fill="none" stroke="#9333ea" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#optional-arrow)"/>
   <g>
     <rect x="48" y="106" width="140" height="88" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/><text class="label" x="118" y="142" text-anchor="middle">题目 / 需求</text><text class="sub" x="118" y="166" text-anchor="middle">目标与约束</text>
     <rect x="222" y="106" width="146" height="88" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/><text class="label" x="295" y="142" text-anchor="middle">澄清与共识</text><text class="sub" x="295" y="166" text-anchor="middle">范围、验收、取舍</text>
@@ -19,9 +21,10 @@
     <rect x="582" y="106" width="146" height="88" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/><text class="label" x="655" y="142" text-anchor="middle">最小切片</text><text class="sub" x="655" y="166" text-anchor="middle">实现与关键测试</text>
     <rect x="762" y="106" width="146" height="88" rx="8" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/><text class="label" x="835" y="142" text-anchor="middle">验证与审查</text><text class="sub" x="835" y="166" text-anchor="middle">主链路、边界、修复</text>
     <rect x="942" y="106" width="198" height="88" rx="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/><text class="label" x="1041" y="142" text-anchor="middle">中文交付报告</text><text class="sub" x="1041" y="166" text-anchor="middle">需求 / 功能 / 问题 / 笔试题</text>
+    <rect x="1174" y="106" width="198" height="88" rx="8" fill="#fdf4ff" stroke="#d8b4fe" stroke-width="1.5" stroke-dasharray="6 4"/><text class="label" x="1273" y="142" text-anchor="middle">长期规格沉淀</text><text class="sub" x="1273" y="166" text-anchor="middle">openspec/ spec + changes</text>
   </g>
-  <rect x="222" y="234" width="686" height="50" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5" stroke-dasharray="6 4"/>
-  <text class="label" x="565" y="257" text-anchor="middle" fill="#166534">$delivery-report：记录决策、改动、证据与风险</text>
-  <text class="sub" x="565" y="276" text-anchor="middle">默认只在对话中输出；不执行 commit、push、PR 或远端写操作</text>
-  <path d="M295 194V234 M475 194V234 M655 194V234 M835 194V234" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#record-arrow)"/>
+  <rect x="222" y="234" width="918" height="50" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text class="label" x="681" y="257" text-anchor="middle" fill="#166534">delivery-report：记录决策、改动、证据与风险，并在报告后判断是否沉淀</text>
+  <text class="sub" x="681" y="276" text-anchor="middle">默认只在对话中输出；不执行 commit、push、PR 或远端写操作</text>
+  <path d="M295 194V234 M475 194V234 M655 194V234 M835 194V234 M1041 194V234" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#record-arrow)"/>
 </svg>
