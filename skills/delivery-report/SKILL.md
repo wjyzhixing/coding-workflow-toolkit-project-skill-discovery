@@ -13,6 +13,7 @@ description: 在需求澄清、功能开发、问题修复或笔试题交付的�
 - 不把假设、计划或未验证的推测写成已完成事实。
 - 不记录普通命令、重复尝试或内部推理，只记录会影响交付判断的事件。
 - 发现阻塞验收的问题时，先记录“证据 → 影响 → 最小修复”，并等待用户确认后再修改。
+- `openspec/` 目录下的文件只通过本文件 `长期规格沉淀判断` 节的确认流程创建，不得在交付报告阶段之外自动写入。
 
 ## 维护交付记录
 
@@ -72,3 +73,68 @@ description: 在需求澄清、功能开发、问题修复或笔试题交付的�
 - 只列出实际发生的改动和已运行的验证。
 - 说明验证失败或未覆盖项，不暗示全部通过。
 - 不包含 commit、push、PR 或远端操作指令。
+
+## 长期规格沉淀判断
+
+生成交付报告后检查以下信号，任一成立即向用户推荐沉淀；无信号时跳过本节，不主动询问，保持轻量。
+
+- 任务确立了跨任务复用的 API、数据契约或状态语义；
+- 任务解决的是反复出现的问题（用户在对话中提及 `又遇到`、`之前也` 等表述）；
+- 任务引入了团队共识载体，如权限模型、错误码、命名约定等；
+- 任务的产物会被其他模块或外部消费者依赖。
+
+有信号时，在交付报告摘要后追加一段推荐：说明本任务的哪一部分适合沉淀为长期规格、理由是什么、建议的 capability 名是什么，并询问 `是否生成 spec 和 change proposal？`，等待用户确认。
+
+用户确认后：
+
+1. 检查 `openspec/specs/<capability>/spec.md` 是否存在：
+   - 不存在 -> 创建目录和文件，使用下方 spec 模板；
+   - 已存在 -> 读取现有 spec，把本次新增或变更的 requirements 和 scenarios 合并进去；不删除已有内容，只在冲突处标注 `本次变更`。
+2. 创建 `openspec/changes/<YYYY-MM-DD>-<short-slug>/proposal.md`，使用下方 change 模板；slug 用英文短横线分隔的小写词组；Why 段引用交付报告路径作为来源。
+3. 在对话中给出已创建文件的链接，并简要说明 spec 与 change 各自的作用。
+
+用户未确认或无信号 -> 不创建任何 `openspec/` 文件，原流程结束。
+
+### spec.md 模板
+
+```markdown
+---
+name: <capability>
+category: <domain>
+last_updated: <YYYY-MM-DD>
+---
+
+# <Capability>
+
+## Requirements
+- REQ-1: <可验证的一句话需求>
+
+## Scenarios
+
+### <scenario-name>
+- **GIVEN** <前置条件>
+- **WHEN** <动作>
+- **THEN** <可观察结果>
+```
+
+### proposal.md 模板
+
+```markdown
+---
+name: <YYYY-MM-DD>-<short-slug>
+type: feature|fix|refactor
+status: proposed
+---
+
+# <Change Title>
+
+## Why
+<动机，引用 ../<任务目录>/交付报告.md>
+
+## What Changes
+- <bullet 列出 spec 的增量>
+
+## Impact
+- Specs: <capability>
+- Files: <受影响文件>
+```

@@ -21,7 +21,11 @@
 ├── docs/
 │   └── assets/
 │       └── delivery-workflow.svg
+├── openspec/                         # 可选，由 delivery-report 在判断值得沉淀时生成
+│   ├── specs/                        # 长期能力规格
+│   └── changes/                      # 变更提案
 ├── examples/
+│   ├── openspec-sediment-demo.md
 │   └── scheduler-guided-delivery-demo.md
 ├── install-codex.sh                   # 安装 skills 到 Codex (~/.codex/skills)
 ├── install-claude.sh                  # 安装 skills 到 Claude Code (~/.claude/skills)
@@ -141,6 +145,10 @@ $guided-delivery
 - `$debug-loop`：基于证据定位问题、最小修复并回归验证。
 - `$delivery-report`：伴随全流程记录关键事实，并输出需求、功能、问题或笔试题报告。
 
+## 长期规格沉淀
+
+`delivery-report` 在生成交付报告时判断本任务是否值得沉淀为 OpenSpec 风格的长期规格（跨任务复用的契约、反复出现的问题、团队共识载体等信号）。有信号时向用户推荐，确认后在项目根的 `openspec/` 目录写入 `specs/<capability>/spec.md` 与 `changes/<YYYY-MM-DD>-<slug>/proposal.md`。无信号或未确认则跳过，单次任务零额外噪音。不依赖 openspec CLI，未来可平滑迁移。
+
 ## 排序题示例
 
 ```text
@@ -158,3 +166,4 @@ $guided-delivery
 ## 完整对话示例
 
 - [Scheduler 的 `$guided-delivery` 对话演示](examples/scheduler-guided-delivery-demo.md)
+- [长期规格沉淀的 `$guided-delivery` 尾部演示](examples/openspec-sediment-demo.md)

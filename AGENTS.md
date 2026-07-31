@@ -21,6 +21,7 @@
 - 完成功能后或提交前审查风险：阅读并使用 `skills/engineering-review/SKILL.md`。
 - 运行异常、测试失败或回归问题：阅读并使用 `skills/debug-loop/SKILL.md`。
 - 不经过 `guided-delivery` 但需要记录过程或生成最终报告：阅读并使用 `skills/delivery-report/SKILL.md`。
+- 长期规格沉淀（可选）：`delivery-report` 在生成交付报告时判断是否值得沉淀为 OpenSpec 风格的 spec/changes，用户确认后在项目根的 `openspec/` 目录写入。不依赖 openspec CLI。
 
 ## 透明性与安全边界
 
